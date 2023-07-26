@@ -1,3 +1,13 @@
+:root{
+    --left-side-color:rgba(204, 84, 16, 0.6);
+    --right-side-color:rgba(117, 137, 78, 0.4);
+    --left-button-hover:rgba(204, 84, 16, 0.6);
+    --right-button-hover:rgba(117, 137, 78, 0.4);
+
+    --animation-duration: 1000ms;
+}
+
+
 *{
     padding: 0;
     margin: 0;
@@ -7,6 +17,8 @@
 
 body{
     height: 100vh;
+    overflow-x: hidden;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -17,6 +29,9 @@ body{
     position: relative;
 }
 
+
+
+
 .container .left{
     position:absolute;
     left: 0;
@@ -25,6 +40,8 @@ body{
     background-size: cover;
     height: 100%;
     width: 50%;
+    overflow: hidden;
+
 }
 
 
@@ -36,4 +53,101 @@ body{
     width: 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
+    
+   
+}
+
+h1{
+    color: white;
+    font-size: 4em;
+    text-transform: uppercase;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+
+    transform: translateX(-50%);   /* Used to position text right in the middle */
+}
+
+
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    color: white;
+    border: 2px solid white;
+    width: 15rem;
+    padding: 1rem;
+
+    transform: translateX(-50%)
+}
+
+.left a:hover{
+    background-color: var(--left-button-hover);
+}
+
+.right a:hover{
+    background-color: var(--right-button-hover);
+}
+
+.container .left::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-side-color);
+}
+
+
+.container .right::before{
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-side-color);
+}
+
+.container.left .left{
+    width: 75%;
+}
+
+.container.left .right{
+    width: 25%;
+}
+
+.container.right .right{
+    width: 75%;
+}
+
+.container.right .left{
+    width: 25%;
+}
+
+.side.left, .side.right, .side.left::before, .side.right::before{
+    transition: all var(--animation-duration) ease-in-out;
+}
+
+
+@media(max-width:1000px){
+
+    h1{
+        top: 30%;
+        font-size: 3em;
+    }
+
+
+    a{
+        top: 40%;
+        padding: 0.5rem;
+        width: 8rem;
+        font-size: 1rem;
+    }
 }
