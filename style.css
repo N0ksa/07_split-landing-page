@@ -84,6 +84,7 @@ a{
     border: 2px solid white;
     width: 15rem;
     padding: 1rem;
+    white-space: nowrap;
 
     transform: translateX(-50%)
 }
@@ -147,7 +148,12 @@ a{
     a{
         top: 40%;
         padding: 0.5rem;
-        width: 8rem;
+        width: 9rem;
         font-size: 1rem;
+    }
+
+    .left,
+    .right{
+        background-position: center;
     }
 }
